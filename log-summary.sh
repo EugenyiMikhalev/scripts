@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/bash 
+# Read logs from file line by line, count log entries by types from 2nd column, display all counts of entries.
 
 if [ $# -ne 1 ]; then
   echo "Number of argumnets need to be 1" >&2
@@ -17,9 +18,6 @@ WARN=0
 ERROR=0
 TOTAL=0
 while IFS= read -r line; do
-  #if [[ $line == \#* ]]; then
-  #  continue
-  #fi
  
   read -r -a fields <<<"$line"
   if [[ ${fields[0]} == \#* ]]; then
