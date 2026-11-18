@@ -1,7 +1,7 @@
 #! /bin/bash
 if [ $# -ne 2 ]; then
 	echo "Please, provide 2 files to compare"
-	exit 1
+	exit 4
 fi
 if [ ! -f "$1" ]; then
 	echo "$1 is not a file"
@@ -27,6 +27,6 @@ diff "$1" "$2" > /dev/null 2>&1 && {
 echo "Files are equal"
 exit 0
 } || {
-echo "Files are NOT equal"
-exit 0
+echo "Files are NOT equal" >&2
+exit 1
 }
